@@ -9,14 +9,15 @@ namespace Day10
         static void Main(string[] args)
         {
             Assignment1();
-            Assignment2();
+            var hash  =Assignment2(File.ReadAllText(@".\input.txt"));
+            Console.WriteLine($"Day 10: Assignment 2: The Knot Hash is: : {hash}");
         }
 
-        static void Assignment2()
+        public static string Assignment2(string inputString)
         {
             var listSize = 256;
             byte[] standardSuffix = new byte[5] { 17, 31, 73, 47, 23 };
-            var input = System.Text.Encoding.ASCII.GetBytes(File.ReadAllText(@".\input.txt")).Concat(standardSuffix).ToArray();            
+            var input = System.Text.Encoding.ASCII.GetBytes(inputString).Concat(standardSuffix).ToArray();            
 
             int[] hashvalueList = new int[listSize];
             for (int i = 0; i < listSize; i++)
@@ -37,7 +38,7 @@ namespace Day10
 
             byte[] sparseHash = GetSparseHash(hashvalueList);
             string denseHash = BitConverter.ToString(sparseHash).Replace("-","");
-            Console.WriteLine($"Day 10: Assignment 2: The Knot Hash is: : {denseHash}");
+            return denseHash;
         }
         
 
