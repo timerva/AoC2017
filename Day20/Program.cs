@@ -58,6 +58,7 @@ namespace Day20
         public Vector Acceleration { get; set; }
 
         public int DistanceToCenter;
+
         private static readonly Vector centerVector = new Vector(0, 0, 0);
         public bool MyProperty { get; set; }
         public override string ToString()
@@ -129,20 +130,6 @@ namespace Day20
             return p1.Number != p2.Number;
         }
 
-
-        public Point(Vector pos, Vector velocity, Vector accelertion)
-        {
-            Pos = pos;
-            Velocity = velocity;
-            Acceleration = accelertion;
-        }
-
-        public Point(int px, int py, int pz, int vx, int vy, int vz, int ax, int ay, int az)
-        {
-            Pos = new Vector(px, py, pz);
-            Velocity = new Vector(vx, vy, vz);
-            Acceleration = new Vector(ax, ay, az);
-        }
     }
 
     public class Vector
