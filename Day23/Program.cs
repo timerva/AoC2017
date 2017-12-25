@@ -19,11 +19,50 @@ namespace Day23
                     break;
             }
             Console.WriteLine($"Day 23 - Assignment 1: The number of mul is: {pgm.NumberOfMul}");
-          
+            Console.WriteLine(RunPartTwo());
           //  Console.WriteLine($"Day 23 - Assignment 2: The value of the H register is: {Part2()}");
         }
 
-    
+        static int RunPartTwo()
+        {
+            int a = 1, b = 57, c, d, e, f, g, h=0;
+            c = b;
+            if (a != 0)
+            {
+                b = (b * 100) - 100000;
+                c = b + 17000;
+            }
+
+            while(true)
+            {
+                f = 1;
+                d = 2;
+                do
+                {
+                    e = 2;
+                    do
+                    {
+                        g = (d * e) - b;
+                        if (g != 0)
+                        {
+                            f = 0;
+                        }
+                        e++;
+                        g = e - b;
+                    } while (g != 0);
+
+                    d++;
+                    g = d - b;
+                } while (g != 0);
+                if (f == 0)
+                    h++;
+                g = b - c;
+                if (g == 0)
+                    return h;
+                b -= 17;
+            }
+
+        }
 
         static void ProcessInstruction(Pgm pgm)
         {
