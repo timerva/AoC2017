@@ -75,7 +75,7 @@ namespace Day23
                 if (f == 0)
                     h++;
                 //Detta betyder att vi har en loop som säger for b = start ; b < c ; b=b+17
-                //Alltså gör vi en for loop istället
+                //Alltså gör jag en for loop istället
                 //g = b - c;
                 //if (g == 0)
                 //    return h;
