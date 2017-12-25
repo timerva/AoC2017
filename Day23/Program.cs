@@ -19,48 +19,69 @@ namespace Day23
                     break;
             }
             Console.WriteLine($"Day 23 - Assignment 1: The number of mul is: {pgm.NumberOfMul}");
-            Console.WriteLine(RunPartTwo());
-          //  Console.WriteLine($"Day 23 - Assignment 2: The value of the H register is: {Part2()}");
+            Console.WriteLine($"Day 23 - Assignment 2: The value of register H is: {RunPartTwo()}");
+            //  Console.WriteLine($"Day 23 - Assignment 2: The value of the H register is: {Part2()}");
         }
 
-        static int RunPartTwo()
+        static long RunPartTwo()
         {
-            int a = 1, b = 57, c, d, e, f, g, h=0;
+            long a = 1, b = 57, c = 0, d = 0, e = 0, f = 0, g = 0, h = 0;
             c = b;
             if (a != 0)
             {
-                b = (b * 100) - 100000;
+                b = (b * 100) + 100000;
                 c = b + 17000;
             }
+            Console.WriteLine(b);
+            Console.WriteLine(c);
 
-            while(true)
+            for (; b <= c; b = b + 17)
             {
+
+                //Tar bort denna while, ersätts med en for loop som kolla på b 
+                //while (true)
+                //{
                 f = 1;
-                d = 2;
-                do
+                //Tar bort denna do while ersätts med en for loop som kollar d mot b med d++ , lägger till f != 0 för att inte leta i onödan efter nummer vi har redan hittat ett d och e som uppfyller vilkoret
+                //Eftersom inre loopen gör en break så kommerdetta göra programmet mycket snabbare
+                //d = 2;
+                //do
+                //{
+                for (d = 2; d < b; d++)
                 {
-                    e = 2;
-                    do
+                    //Ersätts med for loop e mot b med e++
+                    //e = 2;
+                    //do
+                    //{
+                    for (e = 2; e < b; e++)
                     {
                         g = (d * e) - b;
-                        if (g != 0)
+                        if (g == 0)
                         {
                             f = 0;
                         }
-                        e++;
-                        g = e - b;
-                    } while (g != 0);
-
-                    d++;
-                    g = d - b;
-                } while (g != 0);
+                        //Eftersom b är positivt så kan jag aldrig behöva kontrollera d*e som är större än b 
+                        if (g > 0)
+                            break;
+                        //    e++;
+                        //    g = e - b;
+                        //} while (g != 0);
+                    }
+                    //Ersätts av for loop d -> e
+                    //    d++;
+                    //    g = d - b;
+                    //} while (g != 0);
+                }
                 if (f == 0)
                     h++;
-                g = b - c;
-                if (g == 0)
-                    return h;
-                b -= 17;
+                //Detta betyder att vi har en loop som säger for b = start ; b < c ; b=b+17
+                //Alltså gör vi en for loop istället
+                //g = b - c;
+                //if (g == 0)
+                //    return h;
+                //b += 17;
             }
+            return h;
 
         }
 
