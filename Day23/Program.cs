@@ -20,7 +20,6 @@ namespace Day23
             }
             Console.WriteLine($"Day 23 - Assignment 1: The number of mul is: {pgm.NumberOfMul}");
             Console.WriteLine($"Day 23 - Assignment 2: The value of register H is: {RunPartTwo()}");
-            //  Console.WriteLine($"Day 23 - Assignment 2: The value of the H register is: {Part2()}");
         }
 
         static long RunPartTwo()
